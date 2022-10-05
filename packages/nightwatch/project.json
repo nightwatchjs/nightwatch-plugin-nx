@@ -1,0 +1,61 @@
+{
+  "name": "nightwatch",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/nightwatch/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/nightwatch",
+        "main": "packages/nightwatch/src/index.ts",
+        "tsConfig": "packages/nightwatch/tsconfig.lib.json",
+        "assets": [
+          "packages/nightwatch/*.md",
+          {
+            "input": "./packages/nightwatch/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/nightwatch/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/nightwatch",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/nightwatch",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/nightwatch/**/*.ts",
+          "packages/nightwatch/generators.json",
+          "packages/nightwatch/executors.json",
+          "packages/nightwatch/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/nightwatch"],
+      "options": {
+        "jestConfig": "packages/nightwatch/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

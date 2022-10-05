@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "nightwatch",
+  "version": "0.0.1",
+  "generators": {
+    "nightwatch": {
+      "factory": "./src/generators/nightwatch/generator",
+      "schema": "./src/generators/nightwatch/schema.json",
+      "description": "nightwatch generator"
+    }
+  }
+}
