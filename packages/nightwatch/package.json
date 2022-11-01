@@ -1,7 +1,64 @@
 {
-  "name": "@nightwatchjs/nightwatch",
+  "name": "@nrwl/nightwatch",
   "version": "0.0.1",
-  "main": "src/index.js",
-  "generators": "./generators.json",
-  "executors": "./executors.json"
+  "private": false,
+  "description": "The Nx Plugin for nightwatch contains executors and generators allowing your workspace to use the powerful nightwatch integration testing capabilities.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nrwl/nx.git",
+    "directory": "packages/nightwatch"
+  },
+  "keywords": [
+    "Monorepo",
+    "Angular",
+    "React",
+    "Web",
+    "Node",
+    "Nest",
+    "Jest",
+    "nightwatch",
+    "CLI"
+  ],
+  "main": "./index.js",
+  "typings": "./index.d.ts",
+  "author": "David Burns",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nightwatchjs/"
+  },
+  "homepage": "https://nightwatch.org",
+  "schematics": "./generators.json",
+  "builders": "./executors.json",
+  "ng-update": {
+    "requirements": {},
+    "migrations": "./migrations.json"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
+    "@nrwl/devkit": "file:../devkit",
+    "@nrwl/linter": "file:../linter",
+    "@nrwl/workspace": "file:../workspace",
+    "@phenomnomnominal/tsquery": "4.1.1",
+    "babel-loader": "^8.0.2",
+    "chalk": "4.1.0",
+    "dotenv": "~10.0.0",
+    "fork-ts-checker-webpack-plugin": "7.2.13",
+    "ts-loader": "^9.3.1",
+    "tsconfig-paths-webpack-plugin": "3.5.2",
+    "tslib": "^2.3.0",
+    "webpack": "^4 || ^5",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "peerDependencies": {
+    "nightwatch": "^2.4.0"
+  },
+  "peerDependenciesMeta": {
+    "nightwatch": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

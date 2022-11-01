@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "NxnightwatchInit",
+  "cli": "nx",
+  "title": "Add nightwatch Configuration to the workspace",
+  "description": "Add nightwatch Configuration to the workspace.",
+  "type": "object",
+  "properties": {
+    "skipPackageJson": {
+      "type": "boolean",
+      "default": false,
+      "description": "Do not add dependencies to `package.json`."
+    }
+  }
+}

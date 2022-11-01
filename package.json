@@ -1,13 +1,12 @@
 {
-  "name": "nightwatchjs",
-  "version": "0.0.0",
+  "name": "@nightwatchjs/nx",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test"
   },
-  "private": true,
   "devDependencies": {
     "@nrwl/cli": "14.8.3",
     "@nrwl/devkit": "14.8.3",
@@ -37,6 +36,7 @@
   },
   "dependencies": {
     "@swc/helpers": "~0.3.3",
+    "nightwatch": "^2.4.1",
     "tslib": "^2.3.0"
   }
 }

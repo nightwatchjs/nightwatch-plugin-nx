@@ -1,10 +1,16 @@
 {
-  "$schema": "http://json-schema.org/schema",
+  "builders": {
+    "nightwatch": {
+      "implementation": "./src/executors/nightwatch/compat",
+      "schema": "./src/executors/nightwatch/schema.json",
+      "description": "Run nightwatch E2E tests."
+    }
+  },
   "executors": {
-    "build": {
-      "implementation": "./src/executors/build/executor",
-      "schema": "./src/executors/build/schema.json",
-      "description": "build executor"
+    "nightwatch": {
+      "implementation": "./src/executors/nightwatch/nightwatch.impl",
+      "schema": "./src/executors/nightwatch/schema.json",
+      "description": "Run nightwatch E2E tests."
     }
   }
 }

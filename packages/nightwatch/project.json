@@ -1,35 +1,98 @@
 {
-  "name": "nightwatch",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/nightwatch/src",
+  "sourceRoot": "packages/nightwatch",
   "projectType": "library",
   "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "packages/nightwatch/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "outputs": [
+        "coverage/packages/nightwatch"
+      ]
+    },
+    "build-base": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "build/packages/nightwatch",
+        "tsConfig": "packages/nightwatch/tsconfig.lib.json",
+        "main": "packages/nightwatch/index.ts",
+        "updateBuildableProjectDepsInPackageJson": false,
+        "assets": [
+          {
+            "input": "packages/nightwatch",
+            "glob": "**/files/**",
+            "output": "/"
+          },
+          {
+            "input": "packages/nightwatch",
+            "glob": "**/files/**/.gitkeep",
+            "output": "/"
+          },
+          {
+            "input": "packages/nightwatch",
+            "glob": "**/*.json",
+            "ignore": [
+              "**/tsconfig*.json",
+              "project.json",
+              ".eslintrc.json"
+            ],
+            "output": "/"
+          },
+          {
+            "input": "packages/nightwatch",
+            "glob": "**/*.js",
+            "ignore": [
+              "**/jest.config.js"
+            ],
+            "output": "/"
+          },
+          {
+            "input": "packages/nightwatch",
+            "glob": "**/*.d.ts",
+            "output": "/"
+          },
+          {
+            "input": "",
+            "glob": "LICENSE",
+            "output": "/"
+          }
+        ]
+      },
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    },
     "build": {
       "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
-        "outputPath": "dist/packages/nightwatch",
-        "main": "packages/nightwatch/src/index.ts",
-        "tsConfig": "packages/nightwatch/tsconfig.lib.json",
+        "outputPath": "dist/packages/nx",
+        "main": "packages/nx/src/index.ts",
+        "tsConfig": "packages/nx/tsconfig.lib.json",
         "assets": [
-          "packages/nightwatch/*.md",
+          "packages/nx/*.md",
           {
-            "input": "./packages/nightwatch/src",
+            "input": "./packages/nx/src",
             "glob": "**/!(*.ts)",
             "output": "./src"
           },
           {
-            "input": "./packages/nightwatch/src",
+            "input": "./packages/nx/src",
             "glob": "**/*.d.ts",
             "output": "./src"
           },
           {
-            "input": "./packages/nightwatch",
+            "input": "./packages/nx",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./packages/nightwatch",
+            "input": "./packages/nx",
             "glob": "executors.json",
             "output": "."
           }
@@ -38,24 +101,25 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
           "packages/nightwatch/**/*.ts",
+          "packages/nightwatch/**/*.spec.ts",
+          "packages/nightwatch/**/*.spec.tsx",
+          "packages/nightwatch/**/*.spec.js",
+          "packages/nightwatch/**/*.spec.jsx",
+          "packages/nightwatch/**/*.d.ts",
+          "packages/nightwatch/**/executors/**/schema.json",
+          "packages/nightwatch/**/generators/**/schema.json",
           "packages/nightwatch/generators.json",
           "packages/nightwatch/executors.json",
-          "packages/nightwatch/package.json"
+          "packages/nightwatch/package.json",
+          "packages/nightwatch/migrations.json"
         ]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/nightwatch"],
-      "options": {
-        "jestConfig": "packages/nightwatch/jest.config.ts",
-        "passWithNoTests": true
-      }
+      },
+      "outputs": [
+        "{options.outputFile}"
+      ]
     }
-  },
-  "tags": []
+  }
 }

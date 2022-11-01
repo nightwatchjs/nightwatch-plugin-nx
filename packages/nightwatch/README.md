@@ -1,11 +1,13 @@
-# nightwatch
+<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx.png" width="600" alt="Nx - Smart, Fast and Extensible Build System"></p>
 
-This library was generated with [Nx](https://nx.dev).
+{{links}}
 
-## Building
+<hr>
 
-Run `nx build nightwatch` to build the library.
+# Nx: Smart, Fast and Extensible Build System
 
-## Running unit tests
+Nx is a next generation build system with first class monorepo support and powerful integrations.
 
-Run `nx test nightwatch` to execute the unit tests via [Jest](https://jestjs.io).
+This package is a [Cypress plugin for Nx](https://nx.dev/cypress/overview).
+
+{{content}}

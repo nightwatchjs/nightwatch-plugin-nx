@@ -1,15 +1,11 @@
 /* eslint-disable */
 export default {
-  displayName: 'nightwatch',
-  preset: '../../jest.preset.js',
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-    },
-  },
   transform: {
-    '^.+\\.[tj]s$': 'ts-jest',
+    '^.+\\.[tj]sx?$': 'ts-jest',
   },
-  moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/packages/nightwatch',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
+  globals: { 'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'nightwatch',
+  testEnvironment: 'node',
+  preset: '../../jest.preset.js',
 };

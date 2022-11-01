@@ -1,12 +1,37 @@
 {
-  "$schema": "http://json-schema.org/schema",
-  "name": "nightwatch",
-  "version": "0.0.1",
+  "name": "Nx nightwatch",
+  "version": "0.1",
+  "schematics": {
+    "init": {
+      "factory": "./src/generators/init/init#nightwatchInitSchematic",
+      "schema": "./src/generators/init/schema.json",
+      "description": "Initialize the `@nrwl/nightwatch` plugin.",
+      "aliases": [
+        "ng-add"
+      ],
+      "hidden": true
+    },
+    "nightwatch-project": {
+      "factory": "./src/generators/nightwatch-project/nightwatch-project#nightwatchProjectSchematic",
+      "schema": "./src/generators/nightwatch-project/schema.json",
+      "description": "Add a nightwatch E2E Project."
+    }
+  },
   "generators": {
-    "nightwatch": {
-      "factory": "./src/generators/nightwatch/generator",
-      "schema": "./src/generators/nightwatch/schema.json",
-      "description": "nightwatch generator"
+    "init": {
+      "factory": "./src/generators/init/init#nightwatchInitGenerator",
+      "schema": "./src/generators/init/schema.json",
+      "description": "Initialize the `@nrwl/nightwatch` plugin.",
+      "aliases": [
+        "ng-add"
+      ],
+      "hidden": true
+    },
+    "nightwatch-project": {
+      "factory": "./src/generators/nightwatch-project/nightwatch-project#nightwatchProjectGenerator",
+      "schema": "./src/generators/nightwatch-project/schema.json",
+      "description": "Add a nightwatch E2E Project.",
+      "hidden": true
     }
   }
 }
