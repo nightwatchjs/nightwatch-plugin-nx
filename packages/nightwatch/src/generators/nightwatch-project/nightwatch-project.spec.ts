@@ -72,12 +72,9 @@ describe('nightwatch Project', () => {
       expect(
         tree.exists('apps/my-app-e2e/src/fixtures/example.json')
       ).toBeTruthy();
-      expect(tree.exists('apps/my-app-e2e/src/e2e/app.cy.ts')).toBeTruthy();
+      expect(tree.exists('apps/my-app-e2e/src/test/login.ts')).toBeTruthy();
+      expect(tree.exists('apps/my-app-e2e/src/test/titleAssertion.ts')).toBeTruthy();
       expect(tree.exists('apps/my-app-e2e/src/support/app.po.ts')).toBeTruthy();
-      expect(
-        tree.exists('apps/my-app-e2e/src/support/commands.ts')
-      ).toBeTruthy();
-      expect(tree.exists('apps/my-app-e2e/src/support/e2e.ts')).toBeTruthy();
     });
 
     it('should add update `workspace.json` file properly when eslint is passed', async () => {
@@ -272,7 +269,7 @@ describe('nightwatch Project', () => {
       expect(workspace.projects['one-two-other-e2e']).toBeDefined();
       [
         'apps/one/two/other-e2e/nightwatch.conf.ts',
-        'apps/one/two/other-e2e/src/e2e/app.cy.ts',
+        'apps/one/two/other-e2e/src/test/login.ts',
       ].forEach((path) => expect(tree.exists(path)).toBeTruthy());
     });
   });

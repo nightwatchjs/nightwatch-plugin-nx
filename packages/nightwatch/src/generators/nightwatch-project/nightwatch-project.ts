@@ -93,7 +93,6 @@ function addProject(tree: Tree, options: NightwatchProjectSchema) {
               nightwatchConfig
             ),
             baseUrl: options.baseUrl,
-            testingType: 'e2e',
           },
         },
       },
@@ -126,7 +125,6 @@ function addProject(tree: Tree, options: NightwatchProjectSchema) {
               nightwatchConfig
             ),
             devServerTarget,
-            testingType: 'e2e',
           },
           configurations: {
             production: {

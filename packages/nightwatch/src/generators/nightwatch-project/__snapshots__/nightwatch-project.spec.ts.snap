@@ -129,7 +129,7 @@ Object {
     "outDir": "../../../dist/out-tsc",
     "sourceMap": false,
     "types": Array [
-      "cypress",
+      "nightwatch",
       "node",
     ],
   },
@@ -165,7 +165,7 @@ Object {
     "outDir": "../../dist/out-tsc",
     "sourceMap": false,
     "types": Array [
-      "cypress",
+      "nightwatch",
       "node",
     ],
   },

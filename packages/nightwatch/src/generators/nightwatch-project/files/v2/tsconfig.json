@@ -4,7 +4,14 @@
     "sourceMap": false,
     "outDir": "<%= offsetFromRoot %>dist/out-tsc",
     "allowJs": true,
-    "types": ["cypress", "node"]
+    "types": [
+      "nightwatch",
+      "node"
+    ]
   },
-  "include": ["src/**/*.ts", "src/**/*.js", "cypress.config.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "cypress.config.ts"
+  ]
 }
