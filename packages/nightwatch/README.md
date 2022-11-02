@@ -1,13 +1,22 @@
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx.png" width="600" alt="Nx - Smart, Fast and Extensible Build System"></p>
 
-{{links}}
+# Nightwatchjs - nx plugin
 
-<hr>
+This nx plugin sets up Nightwatch for you to be able to run your E2E tests.
 
-# Nx: Smart, Fast and Extensible Build System
+## Installation
 
-Nx is a next generation build system with first class monorepo support and powerful integrations.
+To install you will need to do
 
-This package is a [Cypress plugin for Nx](https://nx.dev/cypress/overview).
+```bash
+npm i @nightwatch/nx --save-dev
+```
 
-{{content}}
+## Generating a project
+
+```bash
+nx g @nightwatch/nx:nightwatch-project
+```
+
+## Writing Tests
+
+To write your tests please follow the documentation on the [Nightwatchjs.org](https://www.nightwatchjs.org) site.
