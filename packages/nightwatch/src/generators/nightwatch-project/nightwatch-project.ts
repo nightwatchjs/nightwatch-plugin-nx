@@ -86,7 +86,7 @@ function addProject(tree: Tree, options: NightwatchProjectSchema) {
       projectType: 'application',
       targets: {
         e2e: {
-          executor: '@nrwl/nightwatch:nightwatch',
+          executor: '@nightwatch/nx:nightwatch',
           options: {
             nightwatchConfig: joinPathFragments(
               options.projectRoot,
@@ -119,7 +119,7 @@ function addProject(tree: Tree, options: NightwatchProjectSchema) {
       projectType: 'application',
       targets: {
         e2e: {
-          executor: '@nrwl/nightwatch:nightwatch',
+          executor: '@nightwatch/nx:nightwatch',
           options: {
             nightwatchConfig: joinPathFragments(
               options.projectRoot,

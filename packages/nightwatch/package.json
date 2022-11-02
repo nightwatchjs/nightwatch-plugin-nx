@@ -1,6 +1,6 @@
 {
-  "name": "@nrwl/nightwatch",
-  "version": "0.0.1",
+  "name": "@nightwatch/nx",
+  "version": "0.0.2",
   "private": false,
   "description": "The Nx Plugin for nightwatch contains executors and generators allowing your workspace to use the powerful nightwatch integration testing capabilities.",
   "repository": {

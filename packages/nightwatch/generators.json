@@ -5,7 +5,7 @@
     "init": {
       "factory": "./src/generators/init/init#nightwatchInitSchematic",
       "schema": "./src/generators/init/schema.json",
-      "description": "Initialize the `@nrwl/nightwatch` plugin.",
+      "description": "Initialize the `@nightwatch/nx` plugin.",
       "aliases": [
         "ng-add"
       ],
@@ -21,7 +21,7 @@
     "init": {
       "factory": "./src/generators/init/init#nightwatchInitGenerator",
       "schema": "./src/generators/init/schema.json",
-      "description": "Initialize the `@nrwl/nightwatch` plugin.",
+      "description": "Initialize the `@nightwatch/nx` plugin.",
       "aliases": [
         "ng-add"
       ],

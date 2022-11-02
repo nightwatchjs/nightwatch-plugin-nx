@@ -3,12 +3,12 @@ import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import { Tree, Rule } from '@angular-devkit/schematics';
 
 const testRunner = new SchematicTestRunner(
-  '@nrwl/cypress',
+  '@nightwatch/nx',
   join(__dirname, '../../generators.json')
 );
 
 const migrationRunner = new SchematicTestRunner(
-  '@nrwl/cypress/migrations',
+  '@nightwatch/nx/migrations',
   join(__dirname, '../../migrations.json')
 );
 

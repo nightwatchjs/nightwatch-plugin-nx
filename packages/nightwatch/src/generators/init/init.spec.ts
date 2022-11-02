@@ -15,7 +15,7 @@ describe('init', () => {
     const existing = 'existing';
     const existingVersion = '1.0.0';
     updateJson(tree, 'package.json', (json) => {
-      json.dependencies['@nrwl/nightwatch'] = nightwatchVersion;
+      json.dependencies['@nightwatch/nx'] = nightwatchVersion;
 
       json.dependencies[existing] = existingVersion;
       json.devDependencies[existing] = existingVersion;

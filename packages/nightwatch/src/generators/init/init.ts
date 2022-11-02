@@ -34,7 +34,7 @@ function setupE2ETargetDefaults(tree: Tree) {
 }
 
 function updateDependencies(tree: Tree) {
-  removeDependenciesFromPackageJson(tree, ['@nrwl/nightwatch'], []);
+  removeDependenciesFromPackageJson(tree, ['@nightwatch/nx'], []);
 
   return addDependenciesToPackageJson(
     tree,
