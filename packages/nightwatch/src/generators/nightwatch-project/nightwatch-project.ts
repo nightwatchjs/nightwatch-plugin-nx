@@ -25,6 +25,8 @@ import { installedNightwatchVersion } from '../../utils/nightwatch-version';
 import { filePathPrefix } from '../../utils/project-name';
 import {
   nightwatchVersion as nightwatchVersion,
+  typesNodeVersion as typesNodeVersion,
+  typesNightwatchVersion as typesNightwatchVersion,
 } from '../../utils/versions';
 // app
 import { Schema } from './schema';
@@ -154,6 +156,18 @@ function addProject(tree: Tree, options: NightwatchProjectSchema) {
   );
 }
 
+export async function updateDependencies(tree: Tree) {
+  return addDependenciesToPackageJson(
+    tree,
+    {},
+    {
+      nightwatch: nightwatchVersion,
+      '@types/node': typesNodeVersion,
+      '@types/nightwatch': typesNightwatchVersion,
+    }
+  );
+}
+
 export async function addLinter(host: Tree, options: NightwatchProjectSchema) {
   if (options.linter === Linter.None) {
     return () => { };
@@ -175,13 +189,6 @@ export async function addLinter(host: Tree, options: NightwatchProjectSchema) {
     return installTask;
   }
 
-  const installTask2 = !options.skipPackageJson
-    ? addDependenciesToPackageJson(
-      host,
-      {},
-      {}
-    )
-    : () => { };
 
   updateJson(host, join(options.projectRoot, '.eslintrc.json'), (json) => {
     json.extends = ['plugin:nightwatch/recommended', ...json.extends];
@@ -236,13 +243,14 @@ export async function addLinter(host: Tree, options: NightwatchProjectSchema) {
     return json;
   });
 
-  return runTasksInSerial(installTask, installTask2);
+  return runTasksInSerial(installTask);
 }
 
 export async function nightwatchProjectGenerator(host: Tree, schema: Schema) {
   const options = normalizeOptions(host, schema);
   createFiles(host, options);
   addProject(host, options);
+  updateDependencies(host);
   const installTask = await addLinter(host, options);
   if (!options.skipFormat) {
     await formatFiles(host);
