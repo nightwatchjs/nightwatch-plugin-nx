@@ -142,20 +142,6 @@ Object {
 }
 `;
 
-exports[`nightwatch Project > v2 should add update \`workspace.json\` file properly when eslint is passed 1`] = `
-Object {
-  "builder": "@nrwl/linter:eslint",
-  "options": Object {
-    "lintFilePatterns": Array [
-      "apps/my-app-e2e/**/*.{js,ts}",
-    ],
-  },
-  "outputs": Array [
-    "{options.outputFile}",
-  ],
-}
-`;
-
 exports[`nightwatch Project > v2 should set right path names in \`nightwatch.config.ts\` 1`] = `null`;
 
 exports[`nightwatch Project > v2 should set right path names in \`tsconfig.e2e.json\` 1`] = `

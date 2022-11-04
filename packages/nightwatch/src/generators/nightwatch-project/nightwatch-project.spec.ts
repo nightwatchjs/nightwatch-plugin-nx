@@ -77,19 +77,6 @@ describe('nightwatch Project', () => {
       expect(tree.exists('apps/my-app-e2e/src/support/app.po.ts')).toBeTruthy();
     });
 
-    it('should add update `workspace.json` file properly when eslint is passed', async () => {
-      await nightwatchProjectGenerator(tree, {
-        name: 'my-app-e2e',
-        project: 'my-app',
-        linter: Linter.EsLint,
-        standaloneConfig: false,
-      });
-      const workspaceJson = readJson(tree, 'workspace.json');
-      const project = workspaceJson.projects['my-app-e2e'];
-
-      expect(project.architect.lint).toMatchSnapshot();
-    });
-
     it('should not add lint target when "none" is passed', async () => {
       await nightwatchProjectGenerator(tree, {
         name: 'my-app-e2e',

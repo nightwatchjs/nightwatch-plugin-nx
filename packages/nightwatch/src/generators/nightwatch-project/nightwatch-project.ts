@@ -168,94 +168,15 @@ export async function updateDependencies(tree: Tree) {
   );
 }
 
-export async function addLinter(host: Tree, options: NightwatchProjectSchema) {
-  if (options.linter === Linter.None) {
-    return () => { };
-  }
-
-  const installTask = await lintProjectGenerator(host, {
-    project: options.projectName,
-    linter: options.linter,
-    skipFormat: true,
-    tsConfigPaths: [joinPathFragments(options.projectRoot, 'tsconfig.json')],
-    eslintFilePatterns: [
-      `${options.projectRoot}/**/*.${options.js ? 'js' : '{js,ts}'}`,
-    ],
-    setParserOptionsProject: options.setParserOptionsProject,
-    skipPackageJson: options.skipPackageJson,
-  });
-
-  if (!options.linter || options.linter !== Linter.EsLint) {
-    return installTask;
-  }
-
-
-  updateJson(host, join(options.projectRoot, '.eslintrc.json'), (json) => {
-    json.extends = ['plugin:nightwatch/recommended', ...json.extends];
-    json.overrides = [
-      /**
-       * In order to ensure maximum efficiency when typescript-eslint generates TypeScript Programs
-       * behind the scenes during lint runs, we need to make sure the project is configured to use its
-       * own specific tsconfigs, and not fall back to the ones in the root of the workspace.
-       */
-      {
-        files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
-        /**
-         * NOTE: We no longer set parserOptions.project by default when creating new projects.
-         *
-         * We have observed that users rarely add rules requiring type-checking to their Nx workspaces, and therefore
-         * do not actually need the capabilites which parserOptions.project provides. When specifying parserOptions.project,
-         * typescript-eslint needs to create full TypeScript Programs for you. When omitting it, it can perform a simple
-         * parse (and AST tranformation) of the source files it encounters during a lint run, which is much faster and much
-         * less memory intensive.
-         *
-         * In the rare case that users attempt to add rules requiring type-checking to their setup later on (and haven't set
-         * parserOptions.project), the executor will attempt to look for the particular error typescript-eslint gives you
-         * and provide feedback to the user.
-         */
-        parserOptions: !options.setParserOptionsProject
-          ? undefined
-          : {
-            project: `${options.projectRoot}/tsconfig.*?.json`,
-          },
-        /**
-         * Having an empty rules object present makes it more obvious to the user where they would
-         * extend things from if they needed to
-         */
-        rules: {},
-      },
-    ];
-
-    if (installedNightwatchVersion() < 7) {
-      /**
-       * We need this override because we enabled allowJS in the tsconfig to allow for JS based nightwatch tests.
-       * That however leads to issues with the CommonJS nightwatch plugin file.
-       */
-      json.overrides.push({
-        files: ['src/plugins/index.js'],
-        rules: {
-          '@typescript-eslint/no-var-requires': 'off',
-          'no-undef': 'off',
-        },
-      });
-    }
-
-    return json;
-  });
-
-  return runTasksInSerial(installTask);
-}
-
 export async function nightwatchProjectGenerator(host: Tree, schema: Schema) {
   const options = normalizeOptions(host, schema);
+  const installTask = await updateDependencies(host);
   createFiles(host, options);
   addProject(host, options);
-  updateDependencies(host);
-  const installTask = await addLinter(host, options);
   if (!options.skipFormat) {
     await formatFiles(host);
   }
-  return installTask;
+  return !options.skipPackageJson ? () => { installTask() } : () => { };
 }
 
 function normalizeOptions(host: Tree, options: Schema): NightwatchProjectSchema {

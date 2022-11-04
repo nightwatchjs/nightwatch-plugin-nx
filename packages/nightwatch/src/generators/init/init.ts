@@ -8,7 +8,6 @@ import {
 } from '@nrwl/devkit';
 import {
   nightwatchVersion,
-  nxVersion,
   typesNodeVersion,
 } from '../../utils/versions';
 import { Schema } from './schema';
