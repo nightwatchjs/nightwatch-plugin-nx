@@ -36,8 +36,8 @@
   "dependencies": {
     "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
-    "@nrwl/linter": "file:../linter",
-    "@nrwl/workspace": "file:../workspace",
+    "@nrwl/linter": "^15.0.12",
+    "@nrwl/workspace": "^15.0.12",
     "@phenomnomnominal/tsquery": "4.1.1",
     "babel-loader": "^8.0.2",
     "chalk": "4.1.0",
@@ -61,6 +61,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@nrwl/devkit": "^15.0.8"
+    "@nrwl/devkit": "^15.0.12"
   }
 }
