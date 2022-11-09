@@ -71,28 +71,28 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/packages/nx",
-        "main": "packages/nx/src/index.ts",
-        "tsConfig": "packages/nx/tsconfig.lib.json",
+        "outputPath": "dist/packages/nightwatch",
+        "main": "packages/nightwatch/src/index.ts",
+        "tsConfig": "packages/nightwatch/tsconfig.lib.json",
         "assets": [
-          "packages/nx/*.md",
+          "packages/nightwatch/*.md",
           {
-            "input": "./packages/nx/src",
+            "input": "./packages/nightwatch/src",
             "glob": "**/!(*.ts)",
-            "output": "./src"
+            "output": "./"
           },
           {
-            "input": "./packages/nx/src",
+            "input": "./packages/nightwatch/src",
             "glob": "**/*.d.ts",
-            "output": "./src"
+            "output": "./"
           },
           {
-            "input": "./packages/nx",
+            "input": "./packages/nightwatch",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./packages/nx",
+            "input": "./packages/nightwatch",
             "glob": "executors.json",
             "output": "."
           }

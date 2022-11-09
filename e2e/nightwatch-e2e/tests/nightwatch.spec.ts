@@ -14,7 +14,7 @@ describe('nightwatch e2e', () => {
   // on a unique project in the workspace, such that they
   // are not dependant on one another.
   beforeAll(() => {
-    ensureNxProject('nightwatch', 'dist/packages/nightwatch');
+    ensureNxProject('@nightwatch/nx', 'build/packages/nightwatch');
   });
 
   afterAll(() => {
@@ -26,7 +26,7 @@ describe('nightwatch e2e', () => {
   it('should create nightwatch', async () => {
     const project = uniq('nightwatch');
     await runNxCommandAsync(
-      `generate @nightwatch/nx:nightwatch ${project}`
+      `generate @nightwatch/nx:nightwatch-project ${project}`
     );
     const result = await runNxCommandAsync(`build ${project}`);
     expect(result.stdout).toContain('Executor ran');
@@ -36,7 +36,7 @@ describe('nightwatch e2e', () => {
     it('should create src in the specified directory', async () => {
       const project = uniq('nightwatch');
       await runNxCommandAsync(
-        `generate @nightwatch/nx:nightwatch ${project} --directory subdir`
+        `generate @nightwatch/nx:nightwatch-project ${project} --directory subdir`
       );
       expect(() =>
         checkFilesExist(`libs/subdir/${project}/src/index.ts`)
@@ -47,9 +47,9 @@ describe('nightwatch e2e', () => {
   describe('--tags', () => {
     it('should add tags to the project', async () => {
       const projectName = uniq('nightwatch');
-      ensureNxProject('@nightwatchjs/nightwatch', 'dist/packages/nightwatch');
+      ensureNxProject('@nightwatch/nx', 'dist/packages/nightwatch');
       await runNxCommandAsync(
-        `generate @nightwatch/:nightwatch ${projectName} --tags e2etag,e2ePackage`
+        `generate @nightwatch/nx:nightwatch-project ${projectName} --tags e2etag,e2ePackage`
       );
       const project = readJson(`libs/${projectName}/project.json`);
       expect(project.tags).toEqual(['e2etag', 'e2ePackage']);

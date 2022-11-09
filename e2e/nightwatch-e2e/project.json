@@ -7,11 +7,13 @@
     "e2e": {
       "executor": "@nrwl/nx-plugin:e2e",
       "options": {
-        "target": "nightwatch:build",
+        "target": "nightwatch:build-base",
         "jestConfig": "e2e/nightwatch-e2e/jest.config.ts"
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["nightwatch"]
+  "implicitDependencies": [
+    "nightwatch"
+  ]
 }
