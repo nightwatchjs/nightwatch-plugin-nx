@@ -23,9 +23,11 @@ import { join } from 'path';
 import { installedNightwatchVersion } from '../../utils/nightwatch-version';
 import { filePathPrefix } from '../../utils/project-name';
 import {
-  nightwatchVersion as nightwatchVersion,
-  typesNodeVersion as typesNodeVersion,
-  typesNightwatchVersion as typesNightwatchVersion,
+  nightwatchVersion,
+  typesNodeVersion,
+  typesNightwatchVersion,
+  chromedriver,
+  geckodriver,
 } from '../../utils/versions';
 // app
 import { Schema } from './schema';
@@ -163,6 +165,8 @@ export async function updateDependencies(tree: Tree) {
       nightwatch: nightwatchVersion,
       '@types/node': typesNodeVersion,
       '@types/nightwatch': typesNightwatchVersion,
+      'geckodriver': geckodriver,
+      'chromedriver': chromedriver,
     }
   );
 }
