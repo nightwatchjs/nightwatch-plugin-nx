@@ -6,7 +6,6 @@ import {
   runExecutor,
 } from '@nrwl/devkit';
 import 'dotenv/config';
-import { existsSync, unlinkSync } from 'fs';
 import { basename, dirname, join } from 'path';
 import { getTempTailwindPath } from '../../utils/ct-helpers';
 
