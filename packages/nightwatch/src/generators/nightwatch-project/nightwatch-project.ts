@@ -16,8 +16,7 @@ import {
   Tree,
   updateJson,
 } from '@nrwl/devkit';
-import { Linter, lintProjectGenerator } from '@nrwl/linter';
-import { runTasksInSerial } from '@nrwl/workspace/src/utilities/run-tasks-in-serial';
+import { Linter } from '@nrwl/linter';
 import { getRelativePathToRootTsConfig } from '@nrwl/workspace/src/utilities/typescript';
 
 import { join } from 'path';
