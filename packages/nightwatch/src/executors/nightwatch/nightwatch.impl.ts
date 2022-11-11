@@ -125,11 +125,11 @@ async function runNighwatch(
   const projectFolderPath = dirname(opts.nightwatchConfig);
   const options: any = {
     project: projectFolderPath,
-    configFile: basename(opts.nightwatchConfig),
+    config: basename(opts.nightwatchConfig),
   };
   // If not, will use the `baseUrl` normally from `nightwatch.conf.js`
   if (baseUrl) {
-    options.config = { baseUrl };
+    options.baseUrl = { baseUrl };
   }
   if (opts.env) {
     options.env = opts.env;
