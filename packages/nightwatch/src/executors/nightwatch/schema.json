@@ -87,15 +87,6 @@
       "type": "string",
       "description": "The reporter options used. Supported options depend on the reporter."
     },
-    "testingType": {
-      "type": "string",
-      "description": "Specify the type of tests to execute.",
-      "enum": [
-        "component",
-        "e2e"
-      ],
-      "default": "e2e"
-    },
     "tag": {
       "type": "string",
       "description": "A comma delimited list to identify a run with.",

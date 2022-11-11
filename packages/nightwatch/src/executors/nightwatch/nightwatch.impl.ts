@@ -45,14 +45,11 @@ export default async function nightwatchExecutor(
   process.env.NX_NIGHTWATCH_TARGET_CONFIGURATION = context.configurationName;
   let success;
 
-  for await (const baseUrl of startDevServer(options, context)) {
-    try {
-      success = await runNighwatch(baseUrl, options);
-    } catch (e) {
-      logger.error(e.message);
-      success = false;
-      if (!options.watch) break;
-    }
+  try {
+    success = await runNighwatch(null, options);
+  } catch (e) {
+    logger.error(e.message);
+    success = false;
   }
 
   return { success };
