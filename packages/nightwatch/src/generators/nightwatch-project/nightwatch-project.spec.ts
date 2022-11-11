@@ -69,9 +69,6 @@ describe('nightwatch Project', () => {
 
       expect(tree.exists('apps/my-app-e2e/nightwatch.conf.ts')).toBeTruthy();
 
-      expect(
-        tree.exists('apps/my-app-e2e/src/fixtures/example.json')
-      ).toBeTruthy();
       expect(tree.exists('apps/my-app-e2e/src/test/login.ts')).toBeTruthy();
       expect(tree.exists('apps/my-app-e2e/src/test/titleAssertion.ts')).toBeTruthy();
       expect(tree.exists('apps/my-app-e2e/src/support/app.po.ts')).toBeTruthy();

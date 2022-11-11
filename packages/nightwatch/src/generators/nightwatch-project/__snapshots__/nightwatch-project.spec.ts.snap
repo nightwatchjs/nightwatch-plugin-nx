@@ -20,10 +20,10 @@ module.exports = {
   src_folders: ['tests', 'nightwatch/examples'],
 
   // See https://nightwatchjs.org/guide/concepts/page-object-model.html
-  page_objects_path: ['nightwatch/page-objects'],
+  page_objects_path: ['./src/support'],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-custom-commands.html
-  custom_commands_path: ['nightwatch/custom-commands'],
+  custom_commands_path: ['./src/support'],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-custom-assertions.html
   custom_assertions_path: ['nightwatch/custom-assertions'],
@@ -32,7 +32,7 @@ module.exports = {
   plugins: ['@nightwatch/react'],
 
   // See https://nightwatchjs.org/guide/concepts/test-globals.html
-  globals_path: 'tests/globals.js',
+  globals_path: './src/tests/globals.js',
 
   webdriver: {},
 
@@ -137,7 +137,7 @@ Object {
   "include": Array [
     "src/**/*.ts",
     "src/**/*.js",
-    "cypress.config.ts",
+    "nightwatch.conf.ts",
   ],
 }
 `;
@@ -159,7 +159,7 @@ Object {
   "include": Array [
     "src/**/*.ts",
     "src/**/*.js",
-    "cypress.config.ts",
+    "nightwatch.conf.ts",
   ],
 }
 `;

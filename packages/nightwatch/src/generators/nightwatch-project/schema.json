@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$id": "NxCypressProjectGeneratorSchema",
+  "$id": "NxNightwatchProjectGeneratorSchema",
   "cli": "nx",
-  "title": "Create Cypress Configuration for the workspace",
-  "description": "Create Cypress Configuration for the workspace.",
+  "title": "Create Nightwatch Configuration for the workspace",
+  "description": "Create Nightwatch Configuration for the workspace.",
   "type": "object",
   "properties": {
     "project": {
@@ -33,7 +33,10 @@
     "linter": {
       "description": "The tool to use for running lint checks.",
       "type": "string",
-      "enum": ["eslint", "none"],
+      "enum": [
+        "eslint",
+        "none"
+      ],
       "default": "eslint"
     },
     "js": {
@@ -61,6 +64,8 @@
       "description": "Do not add dependencies to `package.json`."
     }
   },
-  "required": ["name"],
-  "examplesFile": "../../../docs/cypress-project-examples.md"
+  "required": [
+    "name"
+  ],
+  "examplesFile": ""
 }
