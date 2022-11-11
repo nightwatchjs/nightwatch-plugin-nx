@@ -125,7 +125,7 @@ async function runNighwatch(
   const projectFolderPath = dirname(opts.nightwatchConfig);
   const options: any = {
     project: projectFolderPath,
-    config: basename(opts.nightwatchConfig),
+    config: opts.nightwatchConfig,
   };
   // If not, will use the `baseUrl` normally from `nightwatch.conf.js`
   if (baseUrl) {
@@ -155,7 +155,7 @@ async function runNighwatch(
 
   options.testingType = opts.testingType;
 
-  const client = Nightwatch.createClient(...Object.values(options));
+  const client = Nightwatch.createClient(options);
   let brwsr = null;
   client.launchBrowser().then(browser => {
     this.browser = browser;

@@ -59,7 +59,7 @@ function createFiles(tree: Tree, options: NightwatchProjectSchema) {
   );
 
   if (nightwatchVersion && nightwatchVersion < 7) {
-    updateJson(tree, join(options.projectRoot, 'nightwatch.conf.js'), (json) => {
+    updateJson(tree, join(options.projectRoot, 'nightwatch.conf.ts'), (json) => {
       json.pluginsFile = './src/plugins/index';
       return json;
     });
@@ -80,7 +80,7 @@ function addProject(tree: Tree, options: NightwatchProjectSchema) {
 
   const detectedNighwatchVersion = installedNightwatchVersion() ?? nightwatchVersion;
 
-  const nightwatchConfig = 'nightwatch.conf.js';
+  const nightwatchConfig = 'nightwatch.conf.ts';
 
   if (options.baseUrl) {
     e2eProjectConfig = {
