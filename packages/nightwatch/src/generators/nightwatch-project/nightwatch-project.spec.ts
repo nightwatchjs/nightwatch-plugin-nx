@@ -71,6 +71,7 @@ describe('nightwatch Project', () => {
 
       expect(tree.exists('apps/my-app-e2e/src/test/login.ts')).toBeTruthy();
       expect(tree.exists('apps/my-app-e2e/src/test/titleAssertion.ts')).toBeTruthy();
+      expect(tree.exists('apps/my-app-e2e/src/test/globals.ts')).toBeTruthy();
       expect(tree.exists('apps/my-app-e2e/src/support/app.po.ts')).toBeTruthy();
     });
 
@@ -254,6 +255,7 @@ describe('nightwatch Project', () => {
       [
         'apps/one/two/other-e2e/nightwatch.conf.ts',
         'apps/one/two/other-e2e/src/test/login.ts',
+        'apps/one/two/other-e2e/src/test/globals.ts',
       ].forEach((path) => expect(tree.exists(path)).toBeTruthy());
     });
   });
