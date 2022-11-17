@@ -1,42 +1,62 @@
 {
   "name": "@nightwatch/nx",
-  "version": "0.0.5",
+  "version": "0.1.0",
+  "private": false,
+  "description": "The Nx Plugin for nightwatch contains executors and generators allowing your workspace to use the powerful nightwatch integration testing capabilities.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nightwatchjs/nightwatch-plugin-nx.git",
+    "directory": "packages/nightwatch"
+  },
+  "keywords": [
+    "Monorepo",
+    "Angular",
+    "React",
+    "Web",
+    "Node",
+    "Nest",
+    "Jest",
+    "nightwatch",
+    "CLI"
+  ],
+  "main": "./index.js",
+  "typings": "./index.d.ts",
+  "author": "David Burns",
   "license": "MIT",
-  "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
+  "bugs": {
+    "url": "https://github.com/nightwatchjs/"
+  },
+  "homepage": "https://nightwatch.org",
+  "schematics": "./generators.json",
+  "builders": "./executors.json",
+  "dependencies": {
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
+    "@nrwl/linter": "^15.1.1",
+    "@nrwl/workspace": "^15.1.1",
+    "@phenomnomnominal/tsquery": "4.1.1",
+    "babel-loader": "^8.0.2",
+    "chalk": "4.1.0",
+    "dotenv": "~10.0.0",
+    "fork-ts-checker-webpack-plugin": "7.2.13",
+    "ts-loader": "^9.3.1",
+    "tsconfig-paths-webpack-plugin": "3.5.2",
+    "tslib": "^2.3.0",
+    "webpack": "^4 || ^5",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "peerDependencies": {
+    "nightwatch": "^2.5.0"
+  },
+  "peerDependenciesMeta": {
+    "nightwatch": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
-    "@nrwl/cli": "^15.0.12",
-    "@nrwl/devkit": "^15.0.12",
-    "@nrwl/eslint-plugin-nx": "^15.0.12",
-    "@nrwl/jest": "^15.0.12",
-    "@nrwl/js": "^15.0.12",
-    "@nrwl/linter": "^15.0.12",
-    "@nrwl/nx-plugin": "^15.0.12",
-    "@nrwl/workspace": "^15.0.12",
-    "@swc-node/register": "^1.4.2",
-    "@swc/cli": "~0.1.55",
-    "@swc/core": "^1.2.173",
-    "@types/jest": "28.1.1",
-    "@types/node": "16.11.7",
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
-    "eslint": "~8.15.0",
-    "eslint-config-prettier": "8.1.0",
-    "jest": "28.1.1",
-    "jest-environment-jsdom": "28.1.1",
-    "jsonc-eslint-parser": "^2.1.0",
-    "nx": "^15.0.12",
-    "prettier": "^2.6.2",
-    "ts-jest": "28.0.5",
-    "ts-node": "10.9.1",
-    "typescript": "~4.8.2"
-  },
-  "dependencies": {
-    "@swc/helpers": "~0.3.3",
-    "nightwatch": "^2.4.1",
-    "tslib": "^2.3.0"
+    "@nrwl/devkit": "^15.0.12"
   }
 }

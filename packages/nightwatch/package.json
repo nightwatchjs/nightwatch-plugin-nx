@@ -1,6 +1,6 @@
 {
   "name": "@nightwatch/nx",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "private": false,
   "description": "The Nx Plugin for nightwatch contains executors and generators allowing your workspace to use the powerful nightwatch integration testing capabilities.",
   "repository": {
@@ -32,8 +32,8 @@
   "dependencies": {
     "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
-    "@nrwl/linter": "^15.0.12",
-    "@nrwl/workspace": "^15.0.12",
+    "@nrwl/linter": "^15.1.1",
+    "@nrwl/workspace": "^15.1.1",
     "@phenomnomnominal/tsquery": "4.1.1",
     "babel-loader": "^8.0.2",
     "chalk": "4.1.0",
@@ -46,7 +46,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "peerDependencies": {
-    "nightwatch": "^2.4.0"
+    "nightwatch": "^2.5.0"
   },
   "peerDependenciesMeta": {
     "nightwatch": {
