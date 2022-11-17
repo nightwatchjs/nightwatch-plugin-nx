@@ -20,3 +20,13 @@ nx g @nightwatch/nx:nightwatch-project
 ## Writing Tests
 
 To write your tests please follow the documentation on the [Nightwatchjs.org](https://www.nightwatchjs.org) site.
+
+## Running Tests
+
+When you have written your tests you can run them with the following command
+
+```bash
+nx e2e my-app-e2e
+```
+
+NightwatchJS arguments will be forwarded on from nx
