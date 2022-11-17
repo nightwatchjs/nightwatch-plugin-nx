@@ -26,13 +26,13 @@ module.exports = {
   custom_commands_path: ['apps/my-dir/my-app-e2e/src/support'],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-custom-assertions.html
-  custom_assertions_path: ['apps/my-dir/my-app-e2e/nightwatch/custom-assertions'],
+  // custom_assertions_path: ['apps/my-dir/my-app-e2e/nightwatch/custom-assertions'],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-plugins.html
-  plugins: ['@nightwatch/react'],
+  // plugins: ['@nightwatch/react'],
 
   // See https://nightwatchjs.org/guide/concepts/test-globals.html
-  globals_path: 'apps/my-dir/my-app-e2e/src/test/globals.ts',
+  globals_path: 'apps/my-dir/my-app-e2e/src/globals/globals.js',
 
   webdriver: {},
 
@@ -52,65 +52,79 @@ module.exports = {
       },
 
       desiredCapabilities: {
-        browserName: 'firefox'
+        browserName: 'chrome'
       },
 
-      \\"safari_ios\\":{
-        desiredCapabilities: {
-          browserName: 'safari',
-          platformName: 'ios',
-          'safari:useSimulator': true,
-          // change the deviceName, platformVersion accordingly to run tests on (necessary)
-          // Run command: \`xcrun simctl list devices\`
-          UDID: 'C842E867-5906-4326-ADFA-83D06BA488BF',
-          'platformVersion': '16.0',
-        }
-      },
-
-      \\"firefox_android\\": {
+      firefox: {
         desiredCapabilities: {
           browserName: 'firefox',
-          acceptInsecureCerts: true,
-          'moz:firefoxOptions': {
-            args: [
-              // '-headless',
-              // '-verbose'
-            ],
-            androidPackage: \\"org.mozilla.firefox\\",
+          alwaysMatch: {
+            acceptInsecureCerts: true,
+            'moz:firefoxOptions': {
+              args: [
+                // '-headless',
+                // '-verbose'
+              ]
+            }
           }
+        },
+        webdriver: {
+          start_process: true,
+          server_path: '',
+          cli_args: [
+            // very verbose geckodriver logs
+            // '-vv'
+          ]
         }
       },
 
-      webdriver: {
-        start_process: true,
-        server_path: ''
-      },
-
-    },
-
-    firefox: {
-      desiredCapabilities: {
-        browserName: 'firefox',
-        acceptInsecureCerts: true,
-        'moz:firefoxOptions': {
-          args: [
-            // '-headless',
-            // '-verbose'
-          ],
-          androidPackage: \\"org.mozilla.firefox\\",
+      chrome: {
+        desiredCapabilities: {
+          browserName: 'chrome',
+          'goog:chromeOptions': {
+            // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
+            //
+            // w3c:false tells Chromedriver to run using the legacy JSONWire protocol (not required in Chrome 78)
+            w3c: true,
+            args: [
+              //'--no-sandbox',
+              //'--ignore-certificate-errors',
+              //'--allow-insecure-localhost',
+              //'--headless'
+            ]
+          }
+        },
+        webdriver: {
+          start_process: true,
+          server_path: '',
+          cli_args: [
+            // --verbose
+          ]
         }
-
       },
-      webdriver: {
-        start_process: true,
-        server_path: '',
-        cli_args: [
-          // very verbose geckodriver logs
-          // '-vv'
-        ]
-      }
-    },
 
+      edge: {
+        desiredCapabilities: {
+          browserName: 'MicrosoftEdge',
+          'ms:edgeOptions': {
+            w3c: true,
+            // More info on EdgeDriver: https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options
+            args: [
+              //'--headless'
+            ]
+          }
+        },
+        webdriver: {
+          start_process: true,
+          // Follow https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/?tabs=c-sharp#download-microsoft-edge-webdriver
+          // to download the Edge WebDriver and set the location of extracted \`msedgedriver\` below:
+          server_path: '',
+          cli_args: [
+            // --verbose
+          ]
+        }
+      },
+    },
   },
 
   usage_analytics: {

@@ -71,7 +71,7 @@ describe('nightwatch Project', () => {
 
       expect(tree.exists('apps/my-app-e2e/src/test/login.ts')).toBeTruthy();
       expect(tree.exists('apps/my-app-e2e/src/test/titleAssertion.ts')).toBeTruthy();
-      expect(tree.exists('apps/my-app-e2e/src/test/globals.ts')).toBeTruthy();
+      expect(tree.exists('apps/my-app-e2e/src/globals/globals.js')).toBeTruthy();
       expect(tree.exists('apps/my-app-e2e/src/support/app.po.ts')).toBeTruthy();
     });
 
@@ -237,7 +237,7 @@ describe('nightwatch Project', () => {
         });
 
         const projectConfig = readProjectConfiguration(tree, 'my-app-e2e');
-        expect(projectConfig.targets['e2e'].options.devServerTarget).toEqual(
+        expect(projectConfig.targets['e2e'].options.command).toContain(
           'my-app:serve'
         );
       });
@@ -255,7 +255,7 @@ describe('nightwatch Project', () => {
       [
         'apps/one/two/other-e2e/nightwatch.conf.ts',
         'apps/one/two/other-e2e/src/test/login.ts',
-        'apps/one/two/other-e2e/src/test/globals.ts',
+        'apps/one/two/other-e2e/src/globals/globals.js',
       ].forEach((path) => expect(tree.exists(path)).toBeTruthy());
     });
   });

@@ -89,13 +89,9 @@ function addProject(tree: Tree, options: NightwatchProjectSchema) {
       projectType: 'application',
       targets: {
         e2e: {
-          executor: '@nightwatch/nx:nightwatch',
+          executor: 'nx:run-commands',
           options: {
-            nightwatchConfig: joinPathFragments(
-              options.projectRoot,
-              nightwatchConfig
-            ),
-            baseUrl: options.baseUrl,
+            command: `npx nightwatch -c ${joinPathFragments(options.projectRoot, nightwatchConfig)} --baseURL=${options.baseUrl}`
           },
         },
       },
@@ -121,13 +117,9 @@ function addProject(tree: Tree, options: NightwatchProjectSchema) {
       projectType: 'application',
       targets: {
         e2e: {
-          executor: '@nightwatch/nx:nightwatch',
+          executor: 'nx:run-commands',
           options: {
-            nightwatchConfig: joinPathFragments(
-              options.projectRoot,
-              nightwatchConfig
-            ),
-            devServerTarget,
+            command: `npx nightwatch -c ${joinPathFragments(options.projectRoot, nightwatchConfig)} --baseURL=${devServerTarget}`
           },
           configurations: {
             production: {
