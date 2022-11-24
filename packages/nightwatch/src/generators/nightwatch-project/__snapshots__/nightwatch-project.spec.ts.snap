@@ -17,7 +17,7 @@ exports[`nightwatch Project > v2 nested should set right path names in \`nightwa
 module.exports = {
   // An array of folders (excluding subfolders) where your tests are located;
   // if this is not specified, the test source must be passed as the second argument to the test runner.
-  src_folders: ['apps/my-dir/my-app-e2e/test'],
+  src_folders: ['apps/my-dir/my-app-e2e/src/test'],
 
   // See https://nightwatchjs.org/guide/concepts/page-object-model.html
   page_objects_path: ['apps/my-dir/my-app-e2e/src/support'],
@@ -39,22 +39,44 @@ module.exports = {
   test_workers: {
     enabled: true
   },
-
   test_settings: {
     default: {
       disable_error_log: false,
-      launch_url: 'http://localhost',
 
       screenshots: {
         enabled: false,
         path: 'screens',
-        on_failure: true
+        on_failure: true,
       },
 
       desiredCapabilities: {
-        browserName: 'chrome'
+        browserName: 'chrome',
       },
 
+      webdriver: {
+        start_process: true,
+        server_path: '',
+        cli_args: [
+          // --verbose
+        ],
+      },
+    },
+    chrome: {
+      desiredCapabilities: {
+        browserName: 'chrome',
+        'goog:chromeOptions': {
+          // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
+          //
+          // w3c:false tells Chromedriver to run using the legacy JSONWire protocol (not required in Chrome 78)
+          w3c: true,
+          args: [
+            //'--no-sandbox',
+            //'--ignore-certificate-errors',
+            //'--allow-insecure-localhost',
+            //'--headless'
+          ],
+        },
+      },
       firefox: {
         desiredCapabilities: {
           browserName: 'firefox',
@@ -64,9 +86,9 @@ module.exports = {
               args: [
                 // '-headless',
                 // '-verbose'
-              ]
-            }
-          }
+              ],
+            },
+          },
         },
         webdriver: {
           start_process: true,
@@ -74,35 +96,9 @@ module.exports = {
           cli_args: [
             // very verbose geckodriver logs
             // '-vv'
-          ]
-        }
-      },
-
-      chrome: {
-        desiredCapabilities: {
-          browserName: 'chrome',
-          'goog:chromeOptions': {
-            // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
-            //
-            // w3c:false tells Chromedriver to run using the legacy JSONWire protocol (not required in Chrome 78)
-            w3c: true,
-            args: [
-              //'--no-sandbox',
-              //'--ignore-certificate-errors',
-              //'--allow-insecure-localhost',
-              //'--headless'
-            ]
-          }
+          ],
         },
-        webdriver: {
-          start_process: true,
-          server_path: '',
-          cli_args: [
-            // --verbose
-          ]
-        }
       },
-
       edge: {
         desiredCapabilities: {
           browserName: 'MicrosoftEdge',
@@ -111,8 +107,8 @@ module.exports = {
             // More info on EdgeDriver: https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options
             args: [
               //'--headless'
-            ]
-          }
+            ],
+          },
         },
         webdriver: {
           start_process: true,
@@ -121,8 +117,8 @@ module.exports = {
           server_path: '',
           cli_args: [
             // --verbose
-          ]
-        }
+          ],
+        },
       },
     },
   },
