@@ -56,7 +56,12 @@
           },
           {
             "input": "",
-            "glob": "LICENSE",
+            "glob": "LICENSE.md",
+            "output": "/"
+          },
+          {
+            "input": "",
+            "glob": "README.md",
             "output": "/"
           }
         ]
@@ -94,6 +99,16 @@
           {
             "input": "./packages/nightwatch",
             "glob": "executors.json",
+            "output": "."
+          },
+          {
+            "input": "./",
+            "glob": "LICENSE.md",
+            "output": "."
+          },
+          {
+            "input": "{projectRoot}",
+            "glob": "README.md",
             "output": "."
           }
         ]
