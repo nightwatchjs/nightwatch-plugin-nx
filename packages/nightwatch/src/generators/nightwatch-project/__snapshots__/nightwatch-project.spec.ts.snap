@@ -32,7 +32,7 @@ module.exports = {
   // plugins: ['@nightwatch/react'],
 
   // See https://nightwatchjs.org/guide/concepts/test-globals.html
-  globals_path: 'apps/my-dir/my-app-e2e/src/globals/globals.js',
+  // globals_path: 'apps/my-dir/my-app-e2e/src/globals/globals.js',
 
   webdriver: {},
 
@@ -42,6 +42,7 @@ module.exports = {
   test_settings: {
     default: {
       disable_error_log: false,
+      launch_url: 'http://localhost:4200',
 
       screenshots: {
         enabled: false,
