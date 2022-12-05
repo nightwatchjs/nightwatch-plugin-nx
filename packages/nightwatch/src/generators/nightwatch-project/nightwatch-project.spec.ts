@@ -67,7 +67,7 @@ describe('nightwatch Project', () => {
         project: 'my-app',
       });
 
-      expect(tree.exists('apps/my-app-e2e/nightwatch.conf.ts')).toBeTruthy();
+      expect(tree.exists('apps/my-app-e2e/nightwatch.conf.js')).toBeTruthy();
 
       expect(tree.exists('apps/my-app-e2e/src/test/login.ts')).toBeTruthy();
       expect(tree.exists('apps/my-app-e2e/src/test/titleAssertion.ts')).toBeTruthy();
@@ -158,7 +158,7 @@ describe('nightwatch Project', () => {
         });
 
         const nightwatchConfig = tree.read(
-          'apps/my-dir/my-app-e2e/nightwatch.conf.ts',
+          'apps/my-dir/my-app-e2e/nightwatch.conf.js',
           'utf-8'
         );
         expect(nightwatchConfig).toMatchSnapshot();
@@ -253,7 +253,7 @@ describe('nightwatch Project', () => {
       const workspace = readJson(tree, 'workspace.json');
       expect(workspace.projects['one-two-other-e2e']).toBeDefined();
       [
-        'apps/one/two/other-e2e/nightwatch.conf.ts',
+        'apps/one/two/other-e2e/nightwatch.conf.js',
         'apps/one/two/other-e2e/src/test/login.ts',
         'apps/one/two/other-e2e/src/globals/globals.js',
       ].forEach((path) => expect(tree.exists(path)).toBeTruthy());

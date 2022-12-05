@@ -58,18 +58,6 @@ function createFiles(tree: Tree, options: NightwatchProjectSchema) {
     }
   );
 
-  if (nightwatchVersion && nightwatchVersion < 7) {
-    updateJson(tree, join(options.projectRoot, 'nightwatch.conf.ts'), (json) => {
-      json.pluginsFile = './src/plugins/index';
-      return json;
-    });
-  } else if (nightwatchVersion < 10) {
-    const pluginPath = join(options.projectRoot, 'src/plugins/index.js');
-    if (tree.exists(pluginPath)) {
-      tree.delete(pluginPath);
-    }
-  }
-
   if (options.js) {
     toJS(tree);
   }
@@ -80,7 +68,7 @@ function addProject(tree: Tree, options: NightwatchProjectSchema) {
 
   const detectedNighwatchVersion = installedNightwatchVersion() ?? nightwatchVersion;
 
-  const nightwatchConfig = 'nightwatch.conf.ts';
+  const nightwatchConfig = 'nightwatch.conf.js';
 
   if (options.baseUrl) {
     e2eProjectConfig = {

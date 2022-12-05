@@ -6,11 +6,11 @@ exports[`nightwatch Project > v2 nested should set right path names in \`nightwa
 //
 
 //  _   _  _         _      _                     _          _
-// | \\\\ | |(_)       | |    | |                   | |        | |
-// |  \\\\| | _   __ _ | |__  | |_ __      __  __ _ | |_   ___ | |__
-// | . \` || | / _\` || '_ \\\\ | __|\\\\ \\\\ /\\\\ / / / _\` || __| / __|| '_ \\\\
-// | |\\\\  || || (_| || | | || |_  \\\\ V  V / | (_| || |_ | (__ | | | |
-// \\\\_| \\\\_/|_| \\\\__, ||_| |_| \\\\__|  \\\\_/\\\\_/   \\\\__,_| \\\\__| \\\\___||_| |_|
+// | \\ | |(_)       | |    | |                   | |        | |
+// |  \\| | _   __ _ | |__  | |_ __      __  __ _ | |_   ___ | |__
+// | . \` || | / _\` || '_ \\ | __|\\ \\ /\\ / / / _\` || __| / __|| '_ \\
+// | |\\  || || (_| || | | || |_  \\ V  V / | (_| || |_ | (__ | | | |
+// \\_| \\_/|_| \\__, ||_| |_| \\__|  \\_/\\_/   \\__,_| \\__| \\___||_| |_|
 //             __/ |
 //            |___/
 
@@ -134,21 +134,26 @@ module.exports = {
 `;
 
 exports[`nightwatch Project > v2 nested should set right path names in \`tsconfig.e2e.json\` 1`] = `
-Object {
-  "compilerOptions": Object {
+{
+  "compilerOptions": {
     "allowJs": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
     "outDir": "../../../dist/out-tsc",
+    "skipLibCheck": true,
     "sourceMap": false,
-    "types": Array [
+    "strict": true,
+    "target": "es2016",
+    "types": [
       "nightwatch",
       "node",
     ],
   },
   "extends": "../../../tsconfig.base.json",
-  "include": Array [
+  "include": [
     "src/**/*.ts",
     "src/**/*.js",
-    "nightwatch.conf.ts",
+    "nightwatch.conf.js",
   ],
 }
 `;
@@ -156,21 +161,26 @@ Object {
 exports[`nightwatch Project > v2 should set right path names in \`nightwatch.config.ts\` 1`] = `null`;
 
 exports[`nightwatch Project > v2 should set right path names in \`tsconfig.e2e.json\` 1`] = `
-Object {
-  "compilerOptions": Object {
+{
+  "compilerOptions": {
     "allowJs": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
     "outDir": "../../dist/out-tsc",
+    "skipLibCheck": true,
     "sourceMap": false,
-    "types": Array [
+    "strict": true,
+    "target": "es2016",
+    "types": [
       "nightwatch",
       "node",
     ],
   },
   "extends": "../../tsconfig.base.json",
-  "include": Array [
+  "include": [
     "src/**/*.ts",
     "src/**/*.js",
-    "nightwatch.conf.ts",
+    "nightwatch.conf.js",
   ],
 }
 `;
