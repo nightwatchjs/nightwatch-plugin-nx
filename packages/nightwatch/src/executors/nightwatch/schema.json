@@ -27,11 +27,6 @@
       "x-completion-type": "file",
       "x-completion-glob": "nightwatch.conf?(*)@(.js|.ts|.json)"
     },
-    "watch": {
-      "type": "boolean",
-      "description": "Recompile and run tests when files change.",
-      "default": false
-    },
     "tsConfig": {
       "type": "string",
       "description": "The path of the nightwatch tsconfig configuration json file.",
@@ -58,26 +53,6 @@
     "spec": {
       "type": "string",
       "description": "A comma delimited glob string that is provided to the nightwatch runner to specify which spec files to run. i.e. `**examples/**,**actions.spec**`."
-    },
-    "copyFiles": {
-      "type": "string",
-      "description": "A regex string that is used to choose what additional integration files to copy to the dist folder.",
-      "x-deprecated": true
-    },
-    "ciBuildId": {
-      "oneOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "number"
-        }
-      ],
-      "description": "A unique identifier for a run to enable grouping or parallelization."
-    },
-    "ignoreTestFiles": {
-      "type": "string",
-      "description": "A String or Array of glob patterns used to ignore test files that would otherwise be shown in your list of tests. nightwatch uses minimatch with the options: `{dot: true, matchBase: true}`. We suggest using https://globster.xyz to test what files would match."
     },
     "reporter": {
       "type": "string",
