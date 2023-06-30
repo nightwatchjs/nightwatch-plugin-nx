@@ -57,7 +57,7 @@
     "typescript": "~4.9.3"
   },
   "peerDependencies": {
-    "nightwatch": "^2.5.0"
+    "nightwatch": "^3.0.1"
   },
   "peerDependenciesMeta": {
     "nightwatch": {
